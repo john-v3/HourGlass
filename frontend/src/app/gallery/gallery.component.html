@@ -1,0 +1,24 @@
+<p>gallery works!</p>
+<p>this is the gallery where files can be downloaded</p>
+<h2>My Heroes</h2>
+
+<ul class="contents">
+  <li *ngFor="let content of contents"
+    [class.selected]="content === selectedContent"
+    (click)="onSelect(content)">
+      <ul>
+        <li><h3>title </h3>{{content.title}}</li>
+        <li><h3>author </h3>{{content.author}}</li>
+        <li><h3>privacyLevel </h3>{{content.privacyLevel}}</li>
+        <li><h3>timePosted </h3>{{content.timePosted}}</li>
+        <li><h3>link </h3>{{content.link}}</li>
+        <li><h3>text </h3>{{content.text}}</li>
+        <li><h3>file </h3>{{content.file}}</li>
+        <li class="image" *ngIf="isPicture(content.file)">
+          <img src='http://localhost:5000/image/{{content.file}}' >
+        </li>
+      </ul>
+      <br>
+  </li>
+</ul>
+
